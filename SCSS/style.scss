@@ -1,0 +1,167 @@
+// .box1 {
+//   margin-top: 20px;
+// }
+// h3 {
+//   margin-bottom: 0;
+// }
+@import url("https://fonts.googleapis.com/css2?family=Kosugi&display=swap");
+body,
+html {
+  background-color: rgb(253, 250, 253);
+}
+.btn.focus,
+.btn:focus,
+input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+input::placeholder {
+  color: rgb(197, 197, 197) !important;
+}
+input:focus {
+  border: 1px solid #ced4da !important;
+}
+* {
+  color: rgb(126, 117, 125) !important;
+  font-family: "Kosugi", sans-serif;
+  letter-spacing: 1.5px;
+}
+.container {
+  img {
+    margin-left: 20px;
+  }
+  .btn {
+    border: 1px solid rgb(178, 171, 179);
+    &:hover {
+      background-color: rgb(159, 147, 161);
+      color: #fff !important;
+    }
+  }
+  max-width: 800px;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  h1 {
+    padding-top: 20px;
+  }
+}
+.table th,
+.table td {
+  vertical-align: middle !important;
+}
+
+.table {
+  .yourID,
+  .yourIDs {
+    width: 80px;
+    padding-left: 30px;
+  }
+  .status {
+    width: 500px;
+  }
+  .comment {
+    width: 120px;
+  }
+  .edit,
+  .del {
+    width: 100px;
+    text-align: right;
+    padding-right: 40px;
+  }
+  .todoComment {
+    position: relative;
+  }
+  .edit-form {
+    position: absolute;
+    top: 10px;
+    max-width: 400px;
+  }
+}
+// .edit {
+//   text-align: center;
+// }
+.editBtns {
+  text-align: center;
+}
+.title {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+td {
+  height: 60px !important;
+}
+.status_switch {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  input {
+    margin-right: 5px;
+  }
+  label {
+    margin-right: 10px;
+  }
+}
+input[type="radio"]:checked:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -4px;
+  left: -1px;
+  position: relative;
+  background-color: #d1bace;
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 1px solid rgb(255, 255, 255);
+}
+.check {
+  // text-align: center;
+  input {
+    margin-left: 25px;
+    cursor: pointer;
+  }
+}
+.done {
+  color: rgb(215, 212, 216) !important;
+  text-decoration: line-through;
+}
+#cat {
+  height: 50px;
+  width: 50px;
+}
+
+.editTodo {
+  display: block;
+  width: 100%;
+  height: 25px;
+  font-size: 12px;
+  border: 1px solid #d8cdd7;
+  color: #d8cdd7 !important;
+  border-radius: 5px;
+  margin-top: 5px;
+  padding-left: 10px;
+}
+
+.delBTN {
+  color: rgb(156, 144, 161) !important;
+  cursor: pointer;
+  margin-right: 10px !important;
+  display: block;
+}
+.todoComment {
+  cursor: pointer;
+}
+.container {
+  background-color: #fff;
+  padding-right: 20px !important;
+  padding-left: 20px !important;
+  border-radius: 8px;
+}
+.line {
+  background-image: url("https://upload.cc/i1/2020/11/23/0DeYcP.png");
+  height: 30px;
+  background-repeat: repeat-x;
+  background-size: 30%;
+  opacity: 0.5;
+}

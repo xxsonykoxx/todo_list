@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo☆List</title>
+    <link rel="stylesheet" href="dist/css/style.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <link rel="icon" href="cat-3-24.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+  </head>
+  <body spellcheck="false">
+    <!--◟꒰⑅•ᴗ•⑅꒱◞-->
+    <div id="app" class="container mt-3">
+      <h1 class="title">ToDo リスト<img :src="catImg" alt="" id="cat" /></h1>
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="⑅ 新しい作業を入力してね..°♡"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+          v-model="newtodo"
+          @keyup.enter="addTodo()"
+        />
+        <!--★   ★-->
+        <div class="input-group-append">
+          <button
+            class="btn"
+            type="button"
+            id="button-addon2"
+            @click="addTodo()"
+          >
+            追加する
+          </button>
+        </div>
+      </div>
+
+      <div class="status_switch">
+        <div class="label_group">
+          <label for="all" v-for="(i,key) in option">
+            <input
+              type="radio"
+              :value="i.value"
+              v-model="current"
+            />{{i.label}}</label
+          >
+        </div>
+        <p class="status_num"><span>{{filteredTodos.length}}</span> 件を表示</p>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" class="yourIDs">#</th>
+            <th scope="col" class="comment">チェック</th>
+            <th scope="col" class="status">コメント</th>
+            <th scope="col" class="edit">削除</th>
+          </tr>
+        </thead>
+        <tbody class="t-body">
+          <tr
+            v-for="(i,key) in filteredTodos"
+            :key="i.id"
+            @dblclick="editTodo(i)"
+          >
+            <th scope="row" class="yourID">{{key+1}}</th>
+            <td class="check">
+              <input type="checkbox" v-model="i.completed" />
+            </td>
+            <!--★ コメントはここ！-->
+            <td
+              class="todoComment"
+              :class="{'done':i.completed===true}"
+              @dblclick="editTodo(i)"
+              v-if=""
+            >
+              <span v-if="i.id!==getTodo.id"> {{i.comment}} </span>
+              <!--★ input こっちです。-->
+              <input
+                type="text"
+                class="form-control edit-form"
+                v-if="i.id===getTodo.id"
+                v-model="getComment"
+                @keyup.esc="cancelEdit()"
+                @keyup.enter="doneEdit(i)"
+              />
+            </td>
+            <td class="del">
+              <i class="fas fa-trash delBTN" @click="removeTodo(key)"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h5 class="line" @click="cancelEdit()"></h5>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <script src="JS/todo.js"></script>
+  </body>
+</html>
